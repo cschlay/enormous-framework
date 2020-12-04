@@ -3,8 +3,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+dev = "uvicorn main:app --reload"
+test = "coverage run -m pytest"
+coverage = "coverage report"
+
 [packages]
 uvicorn = "*"
+pytest = "*"
+coverage = "*"
 
 [dev-packages]
 
