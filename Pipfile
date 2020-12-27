@@ -11,6 +11,8 @@ coverage = "coverage report"
 [packages]
 uvicorn = "*"
 psycopg2 = "*"
+starlette = "*"
+requests = "*"
 
 [dev-packages]
 pytest = "*"
@@ -18,4 +20,4 @@ pytest-asyncio = "*"
 coverage = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
