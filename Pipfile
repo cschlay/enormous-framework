@@ -10,10 +10,12 @@ coverage = "coverage report"
 
 [packages]
 uvicorn = "*"
-pytest = "*"
-coverage = "*"
+psycopg2 = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-asyncio = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"
