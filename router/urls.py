@@ -60,5 +60,5 @@ class URL:
             self.name = self.path[2]
             self.id = validate_resource_id(self.path[3]) if len(self.path) == 4 else None
             self.params = validate_url_params(parse_qs(url.query), fields=param_fields)
-        except (KeyError, TypeError):
+        except (KeyError, ValueError, TypeError):
             raise errors.HttpNotFound

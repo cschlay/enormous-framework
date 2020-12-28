@@ -9,6 +9,7 @@ So every url is supposed to have the pattern of:
 The versioning is enforced and an error occurs if not specified. No other urls are allowed.
 Also integer resourceId are not allowed either.
 """
+from api.views import tasks
 
 
 def construct_url_table(*args) -> dict:
@@ -19,8 +20,6 @@ def construct_url_table(*args) -> dict:
         "resourceName": endpointHandler
     }
 
-    versioning should be explicitly written into resourceName.
-
     :param args: any argument of dictionary of urls
     :return: a dictionary of urls
     """
@@ -30,4 +29,8 @@ def construct_url_table(*args) -> dict:
     return url_table
 
 
-urls = construct_url_table()
+urls = construct_url_table(
+    {
+        "tasks": tasks.TaskView
+    }
+)
