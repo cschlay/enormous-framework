@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-dev = "uvicorn main:app --reload"
+dev = "uvicorn main:app --reload --env-file .env"
+doc = "make html"
 test = "coverage run -m pytest"
 coverage = "coverage report"
 
@@ -13,11 +14,13 @@ uvicorn = "*"
 psycopg2 = "*"
 starlette = "*"
 requests = "*"
+python-dotenv = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-asyncio = "*"
 coverage = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3.9"

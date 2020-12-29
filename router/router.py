@@ -9,7 +9,7 @@ So every url is supposed to have the pattern of:
 The versioning is enforced and an error occurs if not specified. No other urls are allowed.
 Also integer resourceId are not allowed either.
 """
-from api.views import tasks
+from api.views import authentication, tasks
 
 
 def construct_url_table(*args) -> dict:
@@ -31,6 +31,7 @@ def construct_url_table(*args) -> dict:
 
 urls = construct_url_table(
     {
-        "tasks": tasks.TaskView
+        "tasks": tasks.TaskView,
+        "login": authentication.LoginView
     }
 )
