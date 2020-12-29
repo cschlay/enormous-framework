@@ -142,3 +142,5 @@ cython_debug/
 # Sonarlint
 index.pb
 sonarlint/
+
+docs/doctrees/

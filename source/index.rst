@@ -10,6 +10,8 @@ Welcome to EF's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Authentication
+
 
 
 Indices and tables
