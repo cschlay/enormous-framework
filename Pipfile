@@ -15,6 +15,7 @@ psycopg2 = "*"
 starlette = "*"
 requests = "*"
 redis = "*"
+argon2-cffi = "*"
 
 [dev-packages]
 pytest = "*"

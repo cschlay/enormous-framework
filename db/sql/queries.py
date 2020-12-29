@@ -33,3 +33,14 @@ def get_row(sql: str, credentials: callable, **kwargs):
         data = cursor.fetchone()
     connection.close()
     return data
+
+
+def create_row(sql: str, credentials: callable, **kwargs):
+    """Create a single row to database table."""
+    connection = psycopg2.connect(**credentials())
+    with connection.cursor() as cursor:
+        cursor.execute(sql, kwargs)
+        data = cursor.fetchone()
+    connection.commit()
+    connection.close()
+    return data

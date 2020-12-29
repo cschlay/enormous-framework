@@ -1,3 +1,4 @@
+import os
 import unittest
 
 import psycopg2
@@ -28,6 +29,11 @@ class APITestCase(unittest.TestCase):
     def setUpClass(cls):
         """Set up the api client and the test database."""
         cls.client = TestClient(app)
+        os.environ["DB_NAME"] = "testdb"
+        os.environ["DB_USER"] = "postgres"
+        os.environ["DB_PASSWORD"] = "postgres"
+        os.environ["DB_HOST"] = "localhost"
+        os.environ["DB_PORT"] = "5435"
 
         connection = psycopg2.connect(
             dbname="testdb",
@@ -39,7 +45,7 @@ class APITestCase(unittest.TestCase):
         connection.set_session(autocommit=True)
         # Create tables and insert data if in scripts.
         with connection.cursor() as cursor:
-            for sql_file in cls.sql_files:
+            for sql_file in ['_install'] + cls.sql_files:
                 with open(f"resources/sql/{sql_file}.sql", "r") as file:
                     cursor.execute(file.read())
         connection.close()

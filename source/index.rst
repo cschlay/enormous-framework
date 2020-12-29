@@ -11,6 +11,7 @@ Welcome to EF's documentation!
    :caption: Contents:
 
    Authentication
+   Registration
 
 
 
