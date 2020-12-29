@@ -5,7 +5,7 @@ name = "pypi"
 
 [scripts]
 dev = "uvicorn main:app --reload --env-file .env"
-docs = "make html -o docs"
+docs = "make html"
 test = "coverage run -m pytest"
 coverage = "coverage report"
 
