@@ -1,5 +1,4 @@
 import json
-import os
 import timeit
 from http import HTTPStatus
 

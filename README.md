@@ -6,13 +6,17 @@ pipenv dev
 
 ## Why another Python Framework
 
-This is exercise, I think one cannot reach sufficient level of understanding of a web application, dissecting parts and analysing security, scalability, and performance issues.
+This is exercise, I think one cannot reach sufficient level of understanding of a web application without dissecting
+parts, analysing security, scalability, and performance issues.
 
-I this framework, everything is implemented and in multiple ways and as flexibly as possible so that modifying the settings 
-gives you different setups. The only dependencies are:
+In this framework, everything is implemented and in multiple ways and as flexibly as possible so that modifying the
+settings gives you different setups. The only dependencies are:
 
 - Uvicorn (ASGI Web Server)
 - Psycopg2 (PostgreSQL driver)
+- Redis
+- Requests
+- Starlette
 
 I try to comment them well so that this can be used as
 "textbook" by reading the documentation.

@@ -14,7 +14,7 @@ uvicorn = "*"
 psycopg2 = "*"
 starlette = "*"
 requests = "*"
-python-dotenv = "*"
+redis = "*"
 
 [dev-packages]
 pytest = "*"

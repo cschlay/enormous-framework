@@ -9,4 +9,3 @@ def authenticate(username: str, password: str) -> Optional[str]:
     """
     sql: Final[str] = ""
     queries.get_row(sql, credentials=queries.get_db_master_credentials, )
-
