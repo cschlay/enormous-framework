@@ -1,8 +1,9 @@
-from unittest import TestCase
+from unittest import TestCase, skip
 
 import psycopg2
 
 
+@skip
 class RowLevelSecurityTest(TestCase):
     def setUp(self) -> None:
         conn = psycopg2.connect(dbname="testdb", user="postgres", password="postgres", port="5435")

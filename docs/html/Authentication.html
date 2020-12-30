@@ -14,6 +14,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Registration" href="Registration.html" />
     <link rel="prev" title="Welcome to EF’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -33,14 +34,58 @@
             
   <div class="section" id="authentication">
 <h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<p>Users login by doing the following request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">login</span>
+<span class="p">{</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On success 200 is returned:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The 400 response is always returned for incorrect credentials and no hint for username already existing is given.</p>
 <div class="section" id="token-authentication">
 <h2>Token Authentication<a class="headerlink" href="#token-authentication" title="Permalink to this headline">¶</a></h2>
 <p>When using a token authentication, the user information is stored as a copy in-memory because these are supposed to
 be accessed frequently.</p>
 <span class="target" id="module-app.authentication.token_authentication"></span><dl class="py function">
 <dt id="app.authentication.token_authentication.authenticate">
-<code class="sig-prename descclassname">app.authentication.token_authentication.</code><code class="sig-name descname">authenticate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">password</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#app.authentication.token_authentication.authenticate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">app.authentication.token_authentication.</code><code class="sig-name descname">authenticate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">password</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#app.authentication.token_authentication.authenticate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an authentication token if username and password are correct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> – to authenticate</p></li>
+<li><p><strong>password</strong> – in plain text</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.authentication.token_authentication.generate_token">
+<code class="sig-prename descclassname">app.authentication.token_authentication.</code><code class="sig-name descname">generate_token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#app.authentication.token_authentication.generate_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a new authorization token and saves it in memory.
+See: <a class="reference external" href="https://docs.python.org/3/library/secrets.html">https://docs.python.org/3/library/secrets.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> – of a user to generate token for</p></li>
+<li><p><strong>username</strong> – is used appended to token to ensure uniqueness</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the generated token</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -69,6 +114,7 @@ be accessed frequently.</p>
 <li class="toctree-l2"><a class="reference internal" href="#token-authentication">Token Authentication</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Registration.html">Registration</a></li>
 </ul>
 
 <div class="relations">
@@ -76,6 +122,7 @@ be accessed frequently.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to EF’s documentation!</a></li>
+      <li>Next: <a href="Registration.html" title="next chapter">Registration</a></li>
   </ul></li>
 </ul>
 </div>

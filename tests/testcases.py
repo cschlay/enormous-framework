@@ -10,6 +10,19 @@ from main import app
 class APITestCase(unittest.TestCase):
     sql_files = []
 
+    def tearDown(self) -> None:
+        """Flushes the databases."""
+        connection = psycopg2.connect(
+            dbname="testdb",
+            user="postgres",
+            password="postgres",
+            port=5435,
+        )
+        connection.set_session(autocommit=True)
+        with connection.cursor() as cursor:
+            cursor.execute("TRUNCATE app_user")     # All user data linked should get cleared.
+        connection.close()
+
     @classmethod
     def tearDownClass(cls):
         """Delete the test database."""
@@ -34,6 +47,10 @@ class APITestCase(unittest.TestCase):
         os.environ["DB_PASSWORD"] = "postgres"
         os.environ["DB_HOST"] = "localhost"
         os.environ["DB_PORT"] = "5435"
+
+        os.environ["REDIS_DB"] = "0"
+        os.environ["REDIS_HOST"] = "localhost"
+        os.environ["REDIS_PORT"] = "6379"
 
         connection = psycopg2.connect(
             dbname="testdb",

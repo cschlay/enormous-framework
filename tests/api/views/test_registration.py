@@ -6,7 +6,6 @@ from tests.testcases import APITestCase
 class RegistrationTest(APITestCase):
     sql_files = [
         "user",
-        "authentication"
     ]
 
     def test_registration(self):
